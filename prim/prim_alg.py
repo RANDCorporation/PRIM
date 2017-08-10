@@ -337,7 +337,8 @@ class Prim(object):
         
         #get experiments of interest
         # TODO this assumes binary classification!!!!!!!
-        logical = self.y>=self.threshold
+        # logical = self.y >= self.threshold # cannot compare boolean to None in py 3.x!
+        logical = [True] * len(self.y)
         
         # if no subsets are provided all uncertainties with non dtype object 
         # are in the same subset, the name of this is r, for rotation
